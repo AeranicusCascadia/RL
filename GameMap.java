@@ -5,6 +5,7 @@ public class GameMap
 {
     // properties
     String mapName;
+    boolean playerPresent;
     int playerX;
     int playerY;
     
@@ -17,7 +18,11 @@ public class GameMap
     // draw map function
     public void drawMap() {
         
-        this.mapGrid[playerX][playerY] = "*";
+        System.out.print("\033\143"); // clears screen, Linux specific. Find better solution through libraries
+
+        if (playerPresent) {
+			this.mapGrid[playerX][playerY] = "*";
+		}
         
        for (int i=0; i < this.mapGrid.length; i++) { // outer array
         
@@ -25,9 +30,10 @@ public class GameMap
                 System.out.printf( this.mapGrid[i][j] + " " );
             } 
             
-            System.out.printf("\n");
-        } 
-    }
+            System.out.printf("\n"); // line break between map rows
+        } // close inner array
+                
+    } // close outer array
     
     // setter: player location
     public void setPlayerLocation(int x, int y) {
@@ -50,6 +56,5 @@ public class GameMap
     // main loop
     public static void main(String[] args) {
         
-       
     }
 }

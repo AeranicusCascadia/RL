@@ -3,15 +3,17 @@ public class Main {
 	
 	public static void main (String[] args) {
 		
-		GameMap myMap = new GameMap(0,0); // create new instance of GameMap
+		GameMap map = new GameMap(0,0); // create new instance of GameMap
         
-        myMap.drawMap();
+        /*
+        map.drawMap();
+        map.setPlayerLocation(2,2);     
+        map.playerPresent = true;
+        map.drawMap();
+        */
         
-        myMap.setPlayerLocation(2,2);
-        
-        System.out.printf("\n");
-        
-        myMap.drawMap();
+        UI ui = new UI();
+        ui.getPlayerCommand();
         
 	}
 }
