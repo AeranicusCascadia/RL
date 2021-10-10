@@ -28,12 +28,16 @@ public class GameMap
         
             for (int j=0; j < this.mapGrid[i].length; j++) { // inner array
                 System.out.printf( this.mapGrid[i][j] + " " );
-            } 
+            } // close inner array
             
             System.out.printf("\n"); // line break between map rows
-        } // close inner array
+        } // close outer array
+        
+        System.out.println(""); // Add two blank lines
                 
-    } // close outer array
+    } // close function
+     
+    
     
     // setter: player location
     public void setPlayerLocation(int x, int y) {
