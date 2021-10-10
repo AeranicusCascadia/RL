@@ -1,30 +1,38 @@
 import java.util.Scanner;
 import java.io.*;
 
-/*
-public static void executePlayercommand() {
-		// switch statement
-		switch(playerCommand) {
-			case "n":
-				// System.out.println("You chose north.");
-				break;
-			case "s":
-				// System.out.println("You chose south.");
-				break;
-			case "e":
-				// System.out.println("You chose east.");
-				break;
-			case "w":
-				//System.out.println("You chose west.");
-				break;
-	}
-*/
-
 public class UI {
 	
 	// properties
-	String playerCommand;
+	static String playerCommand;
 	String validPlayerCommands[] = {"n", "s", "e", "w"};
+	
+
+public static void executePlayercommand() {
+	
+	
+
+	// switch statement
+	switch(playerCommand) {
+		case "n":
+			System.out.println("You chose north.");
+			GameMap.setPlayerDestination(1,1);
+			break;
+		case "s":
+			// System.out.println("You chose south.");
+			break;
+		case "e":
+			// System.out.println("You chose east.");
+			break;
+		case "w":
+			//System.out.println("You chose west.");
+			break;
+		}	
+		
+		
+} // close executePlayercommand
+
+
 	
 	// constructor
 	public UI() {}
@@ -51,7 +59,8 @@ public class UI {
 		// runs player command if valid 
 		if (isCommandValid) {	
 			// run execute player command function
-			System.out.println("Player command executes now.");
+			//System.out.println("Player command executes now.");
+			executePlayercommand();
 
 		} else {
 			System.out.println("I don't recognize that command.");

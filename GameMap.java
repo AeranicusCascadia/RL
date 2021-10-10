@@ -6,8 +6,12 @@ public class GameMap
     // properties
     String mapName;
     boolean playerPresent;
-    int playerX;
-    int playerY;
+    
+    static int playerY;
+    static int playerX;
+    
+    int leavingPlayerY;
+    int leavingPlayerX;
     
     String[][] mapGrid = {
             {".", ".", "."},
@@ -15,13 +19,24 @@ public class GameMap
             {".", ".","."}
         };
     
+ // setter (player destination)
+ public static void setPlayerDestination(int x, int y) {
+	 
+	 
+	 playerX = x;
+	 playerY = y;
+	 }
+ 
+ 
+    
     // draw map function
     public void drawMap() {
+		
         
         System.out.print("\033\143"); // clears screen, Linux specific. Find better solution through libraries
 
-        if (playerPresent) {
-			this.mapGrid[playerX][playerY] = "*";
+        if (playerPresent) { 
+			this.mapGrid[playerY][playerX] = "*";
 		}
         
        for (int i=0; i < this.mapGrid.length; i++) { // outer array
@@ -40,9 +55,9 @@ public class GameMap
     
     
     // setter: player location
-    public void setPlayerLocation(int x, int y) {
+    public void movePlayer(int x, int y) {
 		
-		this.mapGrid[playerX][playerY] = "."; // redraw player occupied space with open space
+		
 		
 		playerX = x;
 		playerY = y;

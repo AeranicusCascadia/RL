@@ -8,11 +8,11 @@ public class Main {
         UI ui = new UI();
         
         map.playerPresent = true;
-        map.setPlayerLocation(1, 1);
+        map.movePlayer(1, 2);
         map.drawMap();
         
         ui.getPlayerCommand();
-        //map.drawMap();
+        map.drawMap();
         
 	}
 }
