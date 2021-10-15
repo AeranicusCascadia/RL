@@ -7,11 +7,12 @@ public class Main {
        
         UI ui = new UI();
         
-        map.playerPresent = true;
-        map.movePlayer(1, 2);
-        map.drawMap();
         
+        map.setPlayerDestination(1, 2);
+        map.drawMap();
         ui.getPlayerCommand();
+        
+        
         map.drawMap();
         
 	}
