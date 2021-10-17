@@ -14,24 +14,35 @@ public class GameMap
     static int leavingPlayerX;
     
     String[][] mapGrid = {
-            {".", ".", "."},
-            {".", ".","."},
-            {".", ".","."}
+            {".", ".", ".", ".", ".", ".","."},
+            {".", ".", ".", ".", ".", ".","."},
+            {".", ".", ".", ".", ".", ".","."},
+            {".", ".", ".", ".", ".", ".","."},
+            {".", ".", ".", ".", ".", ".","."},
+            {".", ".", ".", ".", ".", ".","."},
+            {".", ".", ".", ".", ".", ".","."}
         };
     
  // setter (player destination)
  public static void setPlayerDestination(int x, int y) {
-	 
 	 playerX = x;
 	 playerY = y;
-	 
 	 }
  
+ // getter (player coordinate x)
+ public static int getPlayerCoordinateX() {
+	 return playerX;
+	 }
+	 
+ // getter (player coordinate y)
+ public static int getPlayerCoordinateY() {
+	 return playerY;
+	 }	 
 
     // draw map function
     public void drawMap() {
 	    
-	    this.mapGrid[playerY][playerX] = "*";
+	    this.mapGrid[playerY][playerX] = "@";
 	    
        System.out.print("\033\143"); // clears screen, Linux specific. Find better solution through libraries
         

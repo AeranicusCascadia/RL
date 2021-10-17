@@ -1,20 +1,26 @@
 
 public class Main {
 	
+	static boolean gameRunning = true;
+	
 	public static void main (String[] args) {
 		
 		GameMap map = new GameMap(0,0); // create new instance of GameMap
        
         UI ui = new UI();
         
+        map.setPlayerDestination(3, 3);
+		map.drawMap();
         
-        map.setPlayerDestination(1, 2);
-        map.drawMap();
-        ui.getPlayerCommand();
+        while (gameRunning) {	
+			ui.getPlayerCommand(); 
+			map.drawMap();
+			System.out.println("\n" +  UI.getPostCommandMessage() + "\n");
+		} // close game loop
+		
+		System.out.println("You exit the game."); // exit message
+		System.out.println("");
         
-        
-        map.drawMap();
-        
-	}
-}
+	} // close Main function
+} // close class
 

@@ -5,30 +5,38 @@ public class UI {
 	
 	// properties
 	static String playerCommand;
-	String validPlayerCommands[] = {"n", "s", "e", "w"};
+	static String postCommandMessage;
+	String validPlayerCommands[] = {"q", "n", "s", "e", "w"};
 	
 
 public static void executePlayercommand() {
 	
+	postCommandMessage = ""; // start blank message
 	
-
-	// switch statement
+	int x = GameMap.getPlayerCoordinateX();
+	int y = GameMap.getPlayerCoordinateY();
+	
 	switch(playerCommand) {
-		case "n":
-			System.out.println("You chose north.");
-			GameMap.setPlayerDestination(1,1);
+		case "n": // north
+			postCommandMessage = "You travel north.";
+			GameMap.setPlayerDestination( x,(y-1) );
+			break; 
+		case "s": // south
+			postCommandMessage = "You travel south.";
+			GameMap.setPlayerDestination( x,(y+1) );
 			break;
-		case "s":
-			// System.out.println("You chose south.");
+		case "e": // east
+			postCommandMessage = "You travel east.";
+			GameMap.setPlayerDestination( (x+1), y );
 			break;
-		case "e":
-			// System.out.println("You chose east.");
+		case "w": // west
+			postCommandMessage = "You travel west.";
+			GameMap.setPlayerDestination( (x-1), y );
 			break;
-		case "w":
-			//System.out.println("You chose west.");
+		case "q": // quit game
+			Main.gameRunning = false;
 			break;
 		}	
-		
 		
 } // close executePlayercommand
 
@@ -59,17 +67,20 @@ public static void executePlayercommand() {
 		// runs player command if valid 
 		if (isCommandValid) {	
 			// run execute player command function
-			//System.out.println("Player command executes now.");
 			executePlayercommand();
 
 		} else {
-			System.out.println("I don't recognize that command.");
+			postCommandMessage = "I don't recognize that command.";
 			System.out.println(""); // print blank line
 			return;
 		}
 			
 	} // close getPlayerCommand function
 							
+	// getter for postCommandMessage
+	public static String getPostCommandMessage() {
+		return postCommandMessage;
+		}				
 	
 	
 	// start main function
