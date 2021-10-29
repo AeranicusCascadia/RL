@@ -13,25 +13,29 @@ public static void executePlayercommand() {
 	
 	postCommandMessage = ""; // start blank message
 	
-	int x = GameMap.getPlayerCoordinateX();
-	int y = GameMap.getPlayerCoordinateY();
+	int x = Map.getPlayerCoordinateX();
+	int y = Map.getPlayerCoordinateY();
+	
+	Map.playerLeavingX = x;
+	Map.playerLeavingY = y;
 	
 	switch(playerCommand) {
+		
 		case "n": // north
 			postCommandMessage = "You travel north.";
-			GameMap.setPlayerDestination( x,(y-1) );
+			Map.setPlayerDestination( x,(y-1) );
 			break; 
 		case "s": // south
 			postCommandMessage = "You travel south.";
-			GameMap.setPlayerDestination( x,(y+1) );
+			Map.setPlayerDestination( x,(y+1) );
 			break;
 		case "e": // east
 			postCommandMessage = "You travel east.";
-			GameMap.setPlayerDestination( (x+1), y );
+			Map.setPlayerDestination( (x+1), y );
 			break;
 		case "w": // west
 			postCommandMessage = "You travel west.";
-			GameMap.setPlayerDestination( (x-1), y );
+			Map.setPlayerDestination( (x-1), y );
 			break;
 		case "q": // quit game
 			Main.gameRunning = false;
