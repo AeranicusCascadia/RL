@@ -9,19 +9,16 @@ public class Map
     
     public static Location[][] arrayOfLocations = new Location[3][6];
     
-     public static void setPlayerDestination(int x, int y) {
-        playerX = x;
+    public static void setPlayerDestination(int x, int y) {
+		playerX = x;
         playerY = y;
 		
-		Location oldLocation = arrayOfLocations[x][y];
+		//Location oldLocation = arrayOfLocations[x][y];
         
         arrayOfLocations[playerY][playerX] = new Location("Player Location", "@", false);
         
-        arrayOfLocations[Map.playerLeavingX][Map.playerLeavingY] = oldLocation;
+        //arrayOfLocations[Map.playerLeavingY][Map.playerLeavingX] = oldLocation;
     }
-    
-  
-    
     
     
 	// getter (player coordinate x)

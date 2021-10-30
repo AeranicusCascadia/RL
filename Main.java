@@ -10,7 +10,7 @@ public class Main {
 	
 		UI ui = new UI();
 		Map.build();
-		Map.setPlayerDestination(1,2);
+		Map.setPlayerDestination(1,1);
 		Map.draw();
 		
 		while (gameRunning) { // start main game loop
@@ -18,7 +18,11 @@ public class Main {
 			Map.draw();
 			System.out.println("\n" +  UI.getPostCommandMessage() + "\n");
 			
+			// feedback for movement troubleshooting
 			System.out.println( "Leaving X: " + Map.playerLeavingX + " Y: " +  Map.playerLeavingY );
+			System.out.println( "Destination X: " + Map.playerX + " Y: " +  Map.playerY );
+
+			
 			} // close main game loop
 			
 		System.out.println("You exit the game."); // exit message
