@@ -1,10 +1,11 @@
 
 public class Map
 {
-    public static int playerX;
-    public static int playerY;
-    public static int playerLeavingX;
-    public static int playerLeavingY;
+    static int playerX;
+    static int playerY;
+    static int playerLeavingX;
+    static int playerLeavingY;
+    public static Location playerLocation;
 
     
     public static Location[][] arrayOfLocations = new Location[3][6];
@@ -12,12 +13,9 @@ public class Map
     public static void setPlayerDestination(int x, int y) {
 		playerX = x;
         playerY = y;
-		
-		//Location oldLocation = arrayOfLocations[x][y];
-        
-        arrayOfLocations[playerY][playerX] = new Location("Player Location", "@", false);
-        
-        //arrayOfLocations[Map.playerLeavingY][Map.playerLeavingX] = oldLocation;
+        playerLocation = arrayOfLocations[playerY][playerX];
+        arrayOfLocations[playerY][playerX] = new Location("Player Location", "@", false); 
+        arrayOfLocations[playerLeavingY][playerLeavingX] = playerLocation;
     }
     
     
@@ -62,6 +60,7 @@ public class Map
         arrayOfLocations[2][3] = new Location("Location 16", ".", true);
         arrayOfLocations[2][4] = new Location("Location 17", ".", true);
         arrayOfLocations[2][5] = new Location("Location 18", "#", false);
+      
     }
     
     public static void draw() {
@@ -73,7 +72,9 @@ public class Map
                 System.out.printf( arrayOfLocations[i][j].getIcon() + " ");
             } // end inner loop
             System.out.printf("\n"); // print line break between each inner array
-        } // end inner loop
+        } // close outer loop
+        
+        //arrayOfLocations[playerY][playerX]
         
         System.out.printf("\n"); // print blank line
     }

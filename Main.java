@@ -11,6 +11,9 @@ public class Main {
 		UI ui = new UI();
 		Map.build();
 		Map.setPlayerDestination(1,1);
+		
+		Map.arrayOfLocations[0][0] = new Location("Location 1", "#", false); // probably a bad solution
+
 		Map.draw();
 		
 		while (gameRunning) { // start main game loop
@@ -19,9 +22,9 @@ public class Main {
 			System.out.println("\n" +  UI.getPostCommandMessage() + "\n");
 			
 			// feedback for movement troubleshooting
-			System.out.println( "Leaving X: " + Map.playerLeavingX + " Y: " +  Map.playerLeavingY );
 			System.out.println( "Destination X: " + Map.playerX + " Y: " +  Map.playerY );
-
+			System.out.println( "Leaving X: " + Map.playerLeavingX + " Y: " +  Map.playerLeavingY );
+			System.out.println( Map.playerLocation );
 			
 			} // close main game loop
 			
